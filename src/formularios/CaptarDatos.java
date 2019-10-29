@@ -56,7 +56,7 @@ public class CaptarDatos extends javax.swing.JFrame {
         if(respuesta == chos.APPROVE_OPTION){
         try {
             File archivo = chos.getSelectedFile();
-            if(!archivo.canWrite()){
+            if(archivo.canWrite() && archivo.canRead()){
         BufferedWriter bw;
         if(archivo.exists()) {
             bw = new BufferedWriter(new FileWriter(archivo));
