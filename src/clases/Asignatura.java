@@ -1,9 +1,6 @@
 package clases;
 
 import javax.swing.*;
-import java.io.*;
-import java.util.*;
-
 public class Asignatura {
 
     //Aqui inicializamos las variables que utilizaremos en la clase asignatura
@@ -77,16 +74,18 @@ public class Asignatura {
 
     //Aqui imprimimos la lista de forma ordenada
     public void listaordenada() {
-        System.out.println("Lista ordenada por Nombre: ");
-        System.out.println("Nº    Nombre    Notas");
-        System.out.println("---------------------");
+        String salida = "";
+        salida = salida.concat("Lista ordenada por Nombre: \n");
+        salida = salida.concat("Nº    Nombre    Notas\n");
+        salida = salida.concat("---------------------\n");
         for (int l = 0; l < cantpers; l++) {
-            System.out.print(l);
-            System.out.print("   ");
-            System.out.print(nombres[l]);
-            System.out.print("    ");
-            System.out.println(notas[l]);
+            salida = salida.concat(String.valueOf(l));
+            salida = salida.concat("   ");
+            salida = salida.concat(nombres[l]);
+            salida = salida.concat("    ");
+            salida = salida.concat(notas[l]+"\n");
         }
+        JOptionPane.showMessageDialog(null,salida);
     }
 
     //Calculamos el promedio de sus notas y verificamos de forma cualitativa
@@ -96,15 +95,15 @@ public class Asignatura {
         for (p = 1; p <= cantpers; p++) {
             promedial = promedial + notas[p - 1] / cantpers;
         }
-        System.out.println("El promedio es: " + promedial);
+        JOptionPane.showMessageDialog(null,"El promedio es: " + promedial);
         if (promedial > 90) {
-            System.out.println("el promedio de notas del grupo es bueno");
+            JOptionPane.showMessageDialog(null,"el promedio de notas del grupo es bueno");
         }
         if (promedial > 69 && promedial < 89) {
-            System.out.println("el promedio del grupo es regular");
+            JOptionPane.showMessageDialog(null,"el promedio del grupo es regular");
         }
         if (promedial < 60) {
-            System.out.println("El promedio del grupo es malo");
+            JOptionPane.showMessageDialog(null,"El promedio del grupo es malo");
         }
     }
 
